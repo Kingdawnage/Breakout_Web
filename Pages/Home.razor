@@ -1,0 +1,14 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h3>Hello, world!</h3>
+
+<MyButton Text="I'm a button!" OnClick="ClickMe"/>
+
+@code{
+    void ClickMe()
+    {
+        Console.WriteLine("I was clicked!");
+    }
+}
