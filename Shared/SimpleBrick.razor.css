@@ -2,7 +2,7 @@
     width: 70px;
     height: 30px;
     background-color: hsl(235, 48%, 51%);
-    border: 1px solid black;
+    border: 1px solid none;
     border-radius: 5px;
     margin: 5px;
 }

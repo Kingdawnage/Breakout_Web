@@ -5,6 +5,12 @@
     grid-row-gap: 0px;
 }
 
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .wall {
     position: absolute;
     background-color: gray;
