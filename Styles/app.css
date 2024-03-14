@@ -4,4 +4,12 @@
 
 h3 {
     @apply font-extrabold text-5xl;
+    margin: 10px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 80%)
 }

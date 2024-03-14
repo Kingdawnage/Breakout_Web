@@ -1,0 +1,32 @@
+﻿.grid-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(10, 80px); 
+    grid-row-gap: 0px;
+}
+
+.wall {
+    position: absolute;
+    background-color: gray;
+}
+
+.top-wall {
+    top: 0; /* Position the top wall at the top of the grid container */
+    left: 0; /* Align the top wall with the left edge of the grid container */
+    width: 100%; /* Make the top wall span the entire width of the grid container */
+    height: 5px; /* Adjust height of the top wall as needed */
+}
+
+.side-wall-left {
+    top: 0; /* Align the left side wall with the top edge of the grid container */
+    left: 0; /* Position the left side wall at the left edge of the grid container */
+    width: 5px; /* Adjust width of the left side wall as needed */
+    height: 100vh; /* Make the left side wall span the entire height of the grid container */
+}
+
+.side-wall-right {
+    top: 0; /* Align the right side wall with the top edge of the grid container */
+    right: 0; /* Position the right side wall at the right edge of the grid container */
+    width: 5px; /* Adjust width of the right side wall as needed */
+    height: 100vh; /* Make the right side wall span the entire height of the grid container */
+}

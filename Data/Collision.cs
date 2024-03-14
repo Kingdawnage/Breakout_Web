@@ -1,5 +1,5 @@
 ﻿namespace Breakout_Web.Data
-{
+{ 
     public class Collision
     {
         public static bool PointVsHalfPlane(Vector2 p, Vector2 pointOn, Vector2 n,

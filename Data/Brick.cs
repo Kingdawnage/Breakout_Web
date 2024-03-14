@@ -2,7 +2,7 @@
 
 namespace Breakout_Web.Data
 {
-    abstract class Brick : GameObject
+    public abstract class Brick : GameObject
     {
         public Vector2 Position { get; set; }
         public Vector2 Size { get; set; }

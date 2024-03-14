@@ -1,8 +1,6 @@
-﻿using System.Drawing;
-
-namespace Breakout_Web.Data
+﻿namespace Breakout_Web.Data
 {
-    class SimpleBrick : Brick
+    public class SimpleBrick : Brick
     {
         //public override void Draw(Graphics g)
         //{

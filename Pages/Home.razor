@@ -2,9 +2,21 @@
 
 <PageTitle>Home</PageTitle>
 
-<h3>Hello, world!</h3>
+<div>
+    <h3 class="text-center">Game Environment</h3>
+    <div class="grid-container">
+        <div class="wall top-wall"></div>
+        <div class="wall side-wall-left"></div>
+        <div class="wall side-wall-right"></div>
 
-<MyButton Text="I'm a button!" OnClick="ClickMe"/>
+
+        @for (int i = 0; i < 100; i++)
+        {
+            <SimpleBrick/>
+        }
+    </div>
+
+</div>
 
 @code{
     void ClickMe()
