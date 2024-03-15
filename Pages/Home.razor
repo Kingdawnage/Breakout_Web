@@ -3,6 +3,8 @@
 <PageTitle>Home</PageTitle>
 <div>
     <h3 class="text-center">Game Environment</h3>
+    <Button @onclick="StartGame" style="background-color: green;">Debug</Button>
+
     <div class="grid-container">
         <div class="wall top-wall"></div>
         <div class="wall side-wall-left"></div>
@@ -27,7 +29,7 @@
     <div class="container">
 
        @*  <Ball /> *@
-       <div @onmouseover="StartGame" class="test-ball" style="top: @(X)px; left: @(Y)px"></div>
+       <div  class="test-ball" style="top: @(X)px; left: @(Y)px"></div>
         
         <Bat/>
     </div>
@@ -50,12 +52,15 @@
         Console.WriteLine($"{X}px and {Y}px");
     }
 
-    void StartGame()
+    async Task StartGame()
     {
         while(true)
         {
-            X += 10;
+            X -= 5;
             Console.WriteLine($"{X}px and {Y}px");
+            StateHasChanged();
+
+            await Task.Delay(100);
         }
     }
     
