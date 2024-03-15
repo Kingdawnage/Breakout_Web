@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 h3 {
-    @apply font-extrabold text-5xl;
+    @apply font-extrabold text-5xl; 
     color: white;
     margin: 10px;
 }

@@ -1,6 +1,12 @@
 ﻿.bat {
-    height: 30px;
-    width: 100px;
+    position: absolute;
+    transform: translateX(-50%);
+    align-items: center;
+    bottom: 0;
+    height: 20px;
+    width: 150px;
     border: solid none;
     border-radius: 10px;
+    left: 50%;
+    background-color: hsl(123, 48%, 31%)
 }

@@ -1,7 +1,6 @@
 ﻿@page "/"
 
 <PageTitle>Home</PageTitle>
-
 <div>
     <h3 class="text-center">Game Environment</h3>
     <div class="grid-container">
@@ -20,15 +19,59 @@
     <br />
     <br />
     <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    
     <div class="container">
-        <Ball />
+
+       @*  <Ball /> *@
+       <div @onmouseover="StartGame" class="test-ball" style="top: @(X)px; left: @(Y)px"></div>
+        
+        <Bat/>
     </div>
 
 </div>
 
 @code{
+    private int X { get; set; }
+    private int Y { get; set; }
+    private const int SPEED = 3;
+    private Timer _timer;
+
     void ClickMe()
     {
         Console.WriteLine("I was clicked!");
+    }
+
+    void ShowInfo()
+    {
+        Console.WriteLine($"{X}px and {Y}px");
+    }
+
+    void StartGame()
+    {
+        while(true)
+        {
+            X += 10;
+            Console.WriteLine($"{X}px and {Y}px");
+        }
+    }
+    
+    protected override Task OnInitializedAsync()
+    {
+
+        return base.OnInitializedAsync();
+    }
+
+    private void HandelKeyRight()
+    {
+        
+    }
+
+    private void HandleKeyLeft()
+    {
+
     }
 }

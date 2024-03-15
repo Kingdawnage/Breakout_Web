@@ -27,12 +27,22 @@
     top: 0; /* Align the left side wall with the top edge of the grid container */
     left: 0; /* Position the left side wall at the left edge of the grid container */
     width: 5px; /* Adjust width of the left side wall as needed */
-    height: 100vh; /* Make the left side wall span the entire height of the grid container */
+    height: 93vh; /* Make the left side wall span the entire height of the grid container */
 }
 
 .side-wall-right {
     top: 0; /* Align the right side wall with the top edge of the grid container */
     right: 0; /* Position the right side wall at the right edge of the grid container */
     width: 5px; /* Adjust width of the right side wall as needed */
-    height: 100vh; /* Make the right side wall span the entire height of the grid container */
+    height: 93vh; /* Make the right side wall span the entire height of the grid container */
+}
+
+.test-ball {
+    width: 10px;
+    height: 10px;
+    border: solid none;
+    border-radius: 50%;
+    background-color: white;
+    align-items: center;
+    position: relative;
 }
