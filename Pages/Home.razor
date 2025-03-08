@@ -1,6 +1,8 @@
 ﻿@page "/"
 
 <PageTitle>Home</PageTitle>
+@using System.Timers
+
 <div>
     <h3 class="text-center">Game Environment</h3>
     <Button @onclick="StartGame" style="background-color: green;">Debug</Button>
@@ -27,11 +29,21 @@
     <br />
     
     <div class="container">
-
-       @*  <Ball /> *@
-       <div  class="test-ball" style="top: @(X)px; left: @(Y)px"></div>
-        
-        <Bat/>
+       <div class="test-ball" style="top: @(X)px; left: @(Y)px"></div>     
+        @* <Bat/> *@
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <div class="test-bat" @onkeydown="HandleKeyDown" @onkeyup="HandleKeyUp" @onkeydown:preventDefault
+             tabindex="0" style="left: @(HorizontalMotion )px;" @ref="mainDiv"></div>
     </div>
 
 </div>
@@ -39,44 +51,98 @@
 @code{
     private int X { get; set; }
     private int Y { get; set; }
-    private const int SPEED = 3;
+    private const int BALLSPEED = 2;
+    private const int BATSPEED = 5;
+
+    private int RightForce = 0;
+    private int HorizontalMotion = 0;
     private Timer _timer;
 
-    void ClickMe()
-    {
-        Console.WriteLine("I was clicked!");
-    }
+    private ElementReference mainDiv;
 
-    void ShowInfo()
-    {
-        Console.WriteLine($"{X}px and {Y}px");
-    }
 
     async Task StartGame()
     {
         while(true)
         {
-            X -= 5;
+            X -= 1 * BALLSPEED;
             Console.WriteLine($"{X}px and {Y}px");
-            StateHasChanged();
+            Draw();
 
-            await Task.Delay(100);
+            await Task.Delay(20);
         }
     }
-    
+    void TimerElapsed(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        Console.WriteLine($"Tick {e.SignalTime}");
+        Console.WriteLine($"Tick left {HorizontalMotion}");
+        Console.WriteLine($"Tick force right {RightForce}");
+
+        Update();
+        Draw();
+    }
+
     protected override Task OnInitializedAsync()
     {
+        _timer = new Timer();
+        _timer.Interval = 16;
+        _timer.Elapsed += TimerElapsed;
+        _timer.AutoReset = true;
+        _timer.Enabled = true;
 
         return base.OnInitializedAsync();
     }
 
-    private void HandelKeyRight()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        
+        if (firstRender)
+        {
+            await mainDiv.FocusAsync();
+        }
     }
 
-    private void HandleKeyLeft()
+    private void HandleKeyUp(KeyboardEventArgs e)
     {
+        switch (e.Code)
+        {
+            case "ArrowLeft":
+                Walk(0);
+                break;
 
+            case "ArrowRight":
+                Walk(0);
+                break;
+
+            default:
+                break;
+        }
     }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        switch (e.Code)
+        {
+            case "ArrowLeft":
+                Walk(-BATSPEED);
+                break;
+
+            case "ArrowRight":
+                Walk(BATSPEED);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void Walk(int amt) => RightForce = amt;
+
+    private void Draw() => this.StateHasChanged();
+
+    private void Update()
+    {
+        if (HorizontalMotion <= 0 && RightForce < 0) RightForce = 0;
+
+        HorizontalMotion += RightForce;
+    }
+
 }
